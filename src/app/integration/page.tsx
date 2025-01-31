@@ -136,7 +136,7 @@ const Integration = () => {
                     className="absolute top-50 left 50 w-5/6 h-[800px] mt-6 border border-white">
                     <iframe
                         ref={iframeRef}
-                        src="/test-chatbot.html"
+                        src="https://huly-clone-seven.vercel.app/"
                         className="w-full h-full"
                     />
                 </motion.div>
