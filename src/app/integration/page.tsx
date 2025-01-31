@@ -19,12 +19,14 @@ const Integration = () => {
 
         setTimeout(() => {
             if (iframeRef.current) {
+                const iframeCurr = iframeRef.current;
+                console.log("iframe current: ", iframeCurr);
                 const iframeDocument = iframeRef.current.contentDocument;
                 console.log(iframeDocument);
                 if (iframeDocument) {
                     // Create a script element
                     const script = iframeDocument.createElement("script");
-                    script.src = "/mock-chatbot.js"; // Path to your chatbot script
+                    script.src = "/mock-chatbot.js";
                     script.onload = () => {
                         console.log("Chatbot script injected successfully!");
                     };
@@ -32,7 +34,6 @@ const Integration = () => {
                         console.error("Failed to inject chatbot script.");
                     };
 
-                    // Append the script to the iframe's head
                     iframeDocument.head.appendChild(script);
                 }
             }
@@ -135,7 +136,7 @@ const Integration = () => {
                     className="absolute top-50 left 50 w-5/6 h-[800px] mt-6 border border-white">
                     <iframe
                         ref={iframeRef}
-                        src="https://huly-clone-seven.vercel.app/"
+                        src="/test-chatbot.html"
                         className="w-full h-full"
                     />
                 </motion.div>
