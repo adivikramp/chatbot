@@ -29,7 +29,7 @@ const CompanyDetails = () => {
                             <Label className="text-gray-400 text-sm" htmlFor="companyName">Company Name</Label>
                             <Input className="border-gray-800 text-white py-2" type="name" id="companyName" placeholder="Company's Name" required />
                             <Label className="text-gray-400 text-sm" htmlFor="companyUrl">Company URL</Label>
-                            <Input className="border-gray-800 text-white py-2" type="email" id="companyUrl" placeholder="name@work-email.com" required />
+                            <Input className="border-gray-800 text-white py-2" type="text" id="companyUrl" placeholder="www.website.com" required />
                             <Label className="text-gray-400 text-sm" htmlFor="companyDescription">Company Description</Label>
                             <Textarea className="border-gray-800 text-white py-2 resize-none md:h-32" id="companyDescription" placeholder="Company's Description" required />
                         </div>
