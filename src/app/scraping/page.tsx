@@ -58,7 +58,7 @@ const Scraping = () => {
     };
 
     return (
-        <section className="min-h-screen bg-black flex flex-col items-center pt-12 pb-4 md:pt-32">
+        <section className="min-h-screen bg-black flex flex-col items-center pt-32 pb-4">
             {status === "pending" && (
                 <div className="absolute top-0 w-full h-2 z-20">
                     <div
@@ -69,7 +69,7 @@ const Scraping = () => {
             )}
             <ToastContainer />
             <div className="w-4/5 mx-auto">
-                <h2 className="text-white text-4xl font-semibold mb-12">Webpages Detected</h2>
+                <h2 className="text-white text-3xl md:text-4xl font-semibold mb-12">Webpages Detected</h2>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                     {webpages.map((page) => (
                         <ScrapingDataCard key={page.title} page={page} handleViewDetails={handleViewDetails} />
@@ -84,15 +84,15 @@ const Scraping = () => {
                         className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
                         onClick={handleOutsideClick}
                     >
-                        <div ref={modalRef} className="relative w-[350px] md:w-[800px] bg-gradient-to-t from-gray-800 to-black text-white rounded-xl border border-gray-600 p-6 md:mt-8">
-                            <h2 className="text-2xl font-semibold mb-4">{selectedPage.title} - Scraped Data</h2>
-                            <Link href={selectedPage.url} className="text-lg mb-4">URL: {selectedPage.url}</Link>
+                        <div ref={modalRef} className="relative w-[350px] md:w-[800px] bg-gradient-to-t from-gray-800 to-black text-white rounded-xl border border-gray-600 p-6 mt-8">
+                            <h2 className="text-lg md:text-2xl font-semibold mb-4">{selectedPage.title} - Scraped Data</h2>
+                            <Link href={selectedPage.url} className="text-sm md:text-lg mb-4">URL: {selectedPage.url}</Link>
 
                             <div className="space-y-4 mt-6">
                                 {dummyChunks.map((chunk) => (
                                     <div key={chunk.id} className="bg-gray-700 p-4 rounded-lg">
-                                        <h3 className="text-xl font-semibold">{chunk.title}</h3>
-                                        <p className="text-sm mt-2">{chunk.content}</p>
+                                        <h3 className="text-md md:text-xl font-semibold">{chunk.title}</h3>
+                                        <p className="text-xs md:text-sm mt-2">{chunk.content}</p>
                                     </div>
                                 ))}
                             </div>

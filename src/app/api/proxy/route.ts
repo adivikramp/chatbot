@@ -2,14 +2,13 @@ import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
-    const url = searchParams.get("url"); // Get the target URL from query params
+    const url = searchParams.get("url");
 
     if (!url) {
         return NextResponse.json({ error: "Missing URL parameter" }, { status: 400 });
     }
 
     try {
-        // Fetch the target website
         const response = await fetch(url);
         let content = await response.text();
 

@@ -4,3 +4,7 @@ export interface WebPage {
     imgSrc: string;
     status: string;
 }
+
+export interface FailureUIProps {
+    handleTestIntegration: () => void;
+}

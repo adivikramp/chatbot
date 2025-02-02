@@ -34,7 +34,7 @@ const Navbar = () => {
         ];
 
     return (
-        <div className="fixed top-0 left-0 w-full bg-black flex justify-between items-center h-24 px-4 text-white z-20">
+        <div className="fixed top-0 left-0 w-full bg-black flex justify-between items-center h-20 md:h-24 px-4 text-white z-20">
             {/* Logo */}
             <div className="w-full md:w-4/5 flex justify-between items-center mx-auto">
                 <Link href="/">
