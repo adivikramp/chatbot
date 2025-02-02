@@ -39,7 +39,7 @@ const CompanyDetails = () => {
                     </div>
                 </form>
             </div>
-        </section >
+        </section>
     )
 }
 

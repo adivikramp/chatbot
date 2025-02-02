@@ -10,6 +10,7 @@ import Confetti from "react-confetti";
 import { AiOutlineClose } from "react-icons/ai";
 import { FacebookShareButton, TwitterShareButton, LinkedinShareButton } from "react-share";
 import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
+import Link from "next/link";
 
 const Integration = () => {
     const [integrationStatus, setIntegrationStatus] = useState<"pending" | "success" | "failed">("pending");
@@ -19,7 +20,7 @@ const Integration = () => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const router = useRouter();
 
-    const chatbotScriptURL = "/mock-chatbot.js";
+    const chatbotScriptURL = "https://chatbot-integration-phi.vercel.app/mock-chatbot.js";
 
     const handleTryChatbot = () => {
         const snippet = `(function() {
@@ -84,7 +85,7 @@ const Integration = () => {
         setIsTesting(true);
         toast.info("🔍 Testing chatbot integration...");
         setTimeout(() => {
-            const isSuccess = Math.random() > 0.5; // Random success/failure simulation
+            const isSuccess = Math.random() > 0.5;
             if (isSuccess) {
                 setIntegrationStatus("success");
                 setShowConfetti(true);
@@ -99,7 +100,7 @@ const Integration = () => {
 
     useEffect(() => {
         if (showConfetti) {
-            const timer = setTimeout(() => setShowConfetti(false), 5000); // Stop confetti after 5 seconds
+            const timer = setTimeout(() => setShowConfetti(false), 5000);
             return () => clearTimeout(timer);
         }
     }, [showConfetti]);
@@ -142,9 +143,6 @@ const Integration = () => {
             <Button onClick={handleTestIntegration} className="w-full py-4 rounded-xl mb-4">
                 🔄 Retry Test
             </Button>
-            <a href="https://docs.your-website.com/integration-guide" target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
-                📖 View Integration Guide
-            </a>
         </motion.div>
     );
 
@@ -188,7 +186,8 @@ const Integration = () => {
                     className="fixed top-28 left-4/5 transform -translate-x-1/2 w-[90%] max-w-8xl h-[80vh] bg-gray-800 border border-white shadow-2xl rounded-lg overflow-hidden"
                 >
                     <div className="flex justify-between items-center bg-gray-900 p-3">
-                        <h3 className="text-white text-lg font-semibold">Chatbot Sandbox</h3>
+                        <h3 className="text-white text-lg font-semibold">Sandbox</h3>
+                        <h1 className="text-white text-lg">Chatbot not working as intended? <Link className="underline" href="/feedback">Share feedback</Link></h1>
                         <button onClick={() => setShowIframe(false)} className="text-white hover:text-red-500 text-2xl">
                             <AiOutlineClose />
                         </button>

@@ -3,7 +3,7 @@
 import { signIn, signOut } from "./auth";
 
 export async function signInActionGoogle() {
-    await signIn("google", { redirectTo: "/company-details" });
+    await signIn("google", { redirectTo: "/" });
 }
 
 export async function signInActionEmail(formData) {

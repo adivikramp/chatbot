@@ -7,18 +7,18 @@ import Link from "next/link";
 
 const Navbar = () => {
     const [nav, setNav] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(true); // Simulate login state
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
 
     const handleNav = () => {
         setNav(!nav);
     };
 
     const handleLogin = () => {
-        setIsLoggedIn(true); // Simulate user login
+        setIsLoggedIn(true);
     };
 
     const handleLogout = () => {
-        setIsLoggedIn(false); // Simulate user logout
+        setIsLoggedIn(false);
     };
 
     const authItems = isLoggedIn
