@@ -58,9 +58,9 @@ const Scraping = () => {
     };
 
     return (
-        <section className="min-h-screen bg-black flex flex-col items-center py-20">
+        <section className="min-h-screen bg-black flex flex-col items-center pt-12 pb-4 md:pt-32">
             {status === "pending" && (
-                <div className="absolute top-0 w-full h-2">
+                <div className="absolute top-0 w-full h-2 z-20">
                     <div
                         className="h-full bg-blue-500 rounded-lg"
                         style={{ width: `${progress}%` }}
@@ -84,7 +84,7 @@ const Scraping = () => {
                         className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
                         onClick={handleOutsideClick}
                     >
-                        <div ref={modalRef} className="relative w-[350px] md:w-[500px] bg-gradient-to-t from-gray-800 to-black text-white rounded-xl border border-gray-600 p-6">
+                        <div ref={modalRef} className="relative w-[350px] md:w-[800px] bg-gradient-to-t from-gray-800 to-black text-white rounded-xl border border-gray-600 p-6 md:mt-8">
                             <h2 className="text-2xl font-semibold mb-4">{selectedPage.title} - Scraped Data</h2>
                             <Link href={selectedPage.url} className="text-lg mb-4">URL: {selectedPage.url}</Link>
 
@@ -108,7 +108,7 @@ const Scraping = () => {
                 )}
 
                 <div className="flex justify-end mt-8">
-                    <Button onClick={() => router.push("/integration")} variant="outline" className="border-none px-16 py-2 rounded-2xl text-lg font-bold transition-all duration-200 hover:bg-gray-600 hover:text-white">Next</Button>
+                    <Button onClick={() => router.push("/integration")} variant="outline" className="w-full md:w-min border-none px-16 py-2 rounded-2xl text-lg font-bold transition-all duration-200 hover:bg-gray-600 hover:text-white">Next</Button>
                 </div>
             </div>
         </section>

@@ -19,7 +19,7 @@ const Integration = () => {
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const router = useRouter();
 
-    const chatbotScriptURL = "https://chatbot-integration-phi.vercel.app/mock-chatbot.js";
+    const chatbotScriptURL = "/mock-chatbot.js";
 
     const handleTryChatbot = () => {
         const snippet = `(function() {
@@ -149,8 +149,8 @@ const Integration = () => {
     );
 
     return (
-        <section className="min-h-screen bg-black flex flex-col justify-center items-center px-6">
-            <div className="w-full max-w-xl md:max-w-2xl bg-gray-900 rounded-2xl py-8 px-10 shadow-lg">
+        <section className="min-h-screen bg-black flex flex-col justify-center items-center pt-32 pb-4 px-6">
+            <div className="w-full max-w-xl md:max-w-4xl bg-gray-900 rounded-2xl py-8 px-10 shadow-lg">
                 <div className="flex flex-col items-center">
                     <TbMessageChatbotFilled className="text-white h-14 w-14" />
                     <h1 className="text-white font-bold text-3xl mt-4 mb-2">Chatbot Integration</h1>
@@ -185,7 +185,7 @@ const Integration = () => {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="fixed top-10 left-4/5 transform -translate-x-1/2 w-[90%] max-w-8xl h-[80vh] bg-gray-800 border border-white shadow-2xl rounded-lg overflow-hidden"
+                    className="fixed top-28 left-4/5 transform -translate-x-1/2 w-[90%] max-w-8xl h-[80vh] bg-gray-800 border border-white shadow-2xl rounded-lg overflow-hidden"
                 >
                     <div className="flex justify-between items-center bg-gray-900 p-3">
                         <h3 className="text-white text-lg font-semibold">Chatbot Sandbox</h3>

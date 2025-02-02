@@ -5,7 +5,7 @@ import { WebPage } from "@/types/types";
 const ScrapingDataCard = ({ page, handleViewDetails }: { page: WebPage; handleViewDetails: (page: WebPage) => void }) => {
     return (
         <div className="flex-1 flex flex-col text-white p-6 gap-y-2 border border-gray-600 rounded-xl bg-gradient-to-t from-gray-800 to-black hover:shadow-lg transition-shadow duration-300 ease-in-out">
-            <div className="relative w-full h-48 rounded-lg overflow-hidden">
+            <div className="relative w-full h-48 rounded-lg">
                 <Image
                     src={page.imgSrc}
                     alt={page.title}
