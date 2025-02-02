@@ -24,7 +24,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 # BeyondChats Chatbot Setup UI
 
-This project is a **Next.js** application built with **TypeScript**, **shadcn**, and **framer-motion/react** for smooth animations. It provides a seamless UI/UX for setting up a chatbot, designed to be **mobile-responsive** and tested on **iPhone 15, OnePlus Nord, an ASUS laptop, and a 23-inch monitor**.  
+This project is a **Next.js** application built with **TypeScript**, **shadcn**, and **framer-motion/react** for smooth animations. It provides a seamless UI/UX for setting up a chatbot, designed to be **mobile-responsive** and tested on **iPhone 15, OnePlus Nord, and a laptop**.  
 
 ## 🚀 Features & Flow
 
@@ -56,3 +56,6 @@ This project is a **Next.js** application built with **TypeScript**, **shadcn**,
 
 ## 🔍 Why Dummy Data?
 Implementing a real **web scraping API** would have taken too long, affecting the frontend development focus. Hence, all scraping data and chatbot responses are **static placeholders**.
+
+## 🔍 Deployed Link:
+- https://chatbot-integration-phi.vercel.app/
