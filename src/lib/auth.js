@@ -1,6 +1,6 @@
 // https://example.com/api/auth/callback/google
 
-import NextAuth, { CredentialsSignin } from "next-auth";
+import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 import { getGuest, createGuest } from "./data-service";
@@ -13,23 +13,18 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         email: {},
         password: {},
       },
-      async authorize(credentials) {
-        const { username, email, password } = credentials;
+      authorize: async (credentials) => {
+        console.log("Credentials: ", credentials);
 
-        if (
-          username === "abc" &&
-          email === "abc@gmail.com" &&
-          password === "abc"
-        ) {
-          return {
-            id: "1",
-            username: "abc",
-            name: "John Doe",
-            email: "abc@gmail.com",
-          };
-        } else {
-          throw new CredentialsSignin("Email / password mismatch");
+        let user = null;
+
+        user = await getGuest(credentials.email);
+
+        if (!user) {
+          throw new Error("Invalid credentials.");
         }
+
+        return user;
       },
     }),
     Google({
@@ -46,7 +41,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const existingUser = await getGuest(user.email);
 
         if (!existingUser)
-          await createGuest({ email: user.email, fullName: user.name });
+          await createGuest({
+            username: user.username,
+            email: user.email,
+            password: user.password,
+          });
 
         return true;
       } catch {

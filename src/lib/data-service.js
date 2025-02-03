@@ -1,3 +1,5 @@
+import { supabase } from "./supabase";
+
 export async function getGuest(email) {
   const { data } = await supabase
     .from("guests")

@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
-import { useActionState } from "react";
+import { FormEvent } from "react";
 import Link from "next/link";
-import { useFormStatus } from "react-dom";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -12,7 +10,23 @@ import { TbMessageChatbotFilled } from "react-icons/tb";
 import { signInActionEmail, signInActionGoogle } from "@/lib/actions";
 
 const Login = () => {
-    const [errorMessage, dispatch] = useActionState(signInActionEmail, undefined);
+    function handleSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+
+        const data: Record<string, string> = {};
+        formData.forEach((value, key) => {
+            data[key] = value as string;
+        });
+
+        signInActionEmail(data).then((response) => {
+            if (response) {
+                console.log("Login Response:", response);
+            }
+        }).catch((error) => {
+            console.error("Login Error:", error);
+        });
+    }
 
     return (
         <section className="min-h-screen bg-black flex flex-col justify-center items-center">
@@ -20,7 +34,7 @@ const Login = () => {
                 className="mx-auto w-[360px] md:w-[480px] flex flex-col rounded-2xl py-6 px-10"
                 style={{ boxShadow: "0 4px 28px rgba(255, 255, 255, 0.4)" }}
             >
-                <form action={dispatch}>
+                <form onSubmit={handleSubmit}>
                     <div className="flex flex-col">
                         <div className="flex items-center">
                             <TbMessageChatbotFilled className="text-white h-12 w-12" />
@@ -61,7 +75,7 @@ const Login = () => {
                                 required
                             />
                         </div>
-                        <LoginButton />
+                        <Button variant="outline" className="py-6 md:py-4 rounded-xl">Login</Button>
                     </div>
                 </form>
                 <div className="flex items-center mt-6">
@@ -88,13 +102,3 @@ const Login = () => {
 };
 
 export default Login;
-
-function LoginButton() {
-    const { pending } = useFormStatus();
-
-    return (
-        <Button variant="outline" className="py-6 md:py-4 rounded-xl" aria-disabled={pending}>
-            {pending ? "Logging in..." : "Login"}
-        </Button>
-    );
-}

@@ -1,3 +1,5 @@
+import { Session } from "next-auth";
+
 export interface WebPage {
     title: string;
     url: string;
@@ -7,4 +9,9 @@ export interface WebPage {
 
 export interface FailureUIProps {
     handleTestIntegration: () => void;
+}
+
+export interface MobileNavProps {
+    session: Session | null,
+    signOutAction: () => void
 }
