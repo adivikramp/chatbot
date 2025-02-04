@@ -1,28 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
+import { mockCompanies } from "@/data/mockData";
 import { useState } from "react";
 
 const AdminPanel = () => {
-  const [companies, setCompanies] = useState([
-    {
-      id: 1,
-      name: "Tech Corp",
-      url: "https://techcorp.com",
-      description: "A leading tech company",
-      scrapedData: [
-        { page: "Home", link: "https://techcorp.com" },
-        { page: "Changelog", link: "https://techcorp.com/changelog" },
-      ],
-    },
-    {
-      id: 2,
-      name: "Example Inc",
-      url: "https://example.com",
-      description: "Example company description",
-      scrapedData: [],
-    },
-  ]);
+  const [companies, setCompanies] = useState(mockCompanies);
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center p-6 pt-32">

@@ -11,4 +11,24 @@ const dummyChunks = [
     { id: 3, title: "Assets", content: "img-1.jpg, logo.png, background-image.jpg, hero-banner.png, icon-1.svg, illustration.svg." }
 ];
 
-export { initialWebpages, dummyChunks };
+const mockCompanies = [
+    {
+        id: 1,
+        name: "Tech Corp",
+        url: "https://techcorp.com",
+        description: "A leading tech company",
+        scrapedData: [
+            { page: "Home", link: "https://techcorp.com" },
+            { page: "Changelog", link: "https://techcorp.com/changelog" },
+        ],
+    },
+    {
+        id: 2,
+        name: "Example Inc",
+        url: "https://example.com",
+        description: "Example company description",
+        scrapedData: [],
+    },
+]
+
+export { initialWebpages, dummyChunks, mockCompanies };

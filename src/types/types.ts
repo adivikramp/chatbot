@@ -15,3 +15,8 @@ export interface MobileNavProps {
     session: Session | null,
     signOutAction: () => void
 }
+
+export interface ScrapingDataCardProps {
+    page: WebPage,
+    handleViewDetails: (page: WebPage) => void
+}
